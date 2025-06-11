@@ -26,3 +26,27 @@ npx playwright codegen http://localhost:3000
 ```bash
 npx playwright test --debug
 ```
+
+## run with MCP
+
+- configuration Claude Desktop
+
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+}
+```
+
+- prompt
+
+```bash
+localhost:3000に対して以下のシナリオテストをお願いします
+* Inboxを押して一番上のメールを開いて、返信としてhelloと入力し、送信する
+```
