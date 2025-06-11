@@ -41,7 +41,7 @@ export function Sidebar({ folders }: SidebarProps) {
   return (
     <div className="group flex h-full w-[80px] flex-col border-r bg-background p-2 md:w-[240px]">
       <div className="flex h-[52px] items-center justify-center md:justify-start">
-        <Link href="/" className="flex items-center gap-2 font-semibold">
+        <Link href="/#" className="flex items-center gap-2 font-semibold">
           <MailIcon className="h-6 w-6" />
           <span className="hidden md:inline-flex">Mailbox</span>
         </Link>
@@ -66,11 +66,11 @@ export function Sidebar({ folders }: SidebarProps) {
         {folders.map((folder) => (
           <Button
             key={folder.id}
-            variant={pathname === `/${folder.id}` || pathname === "/" && folder.id === "inbox" ? "secondary" : "ghost"}
+            variant={pathname === "/#" && folder.id === "inbox" ? "secondary" : "ghost"}
             className="justify-start"
             asChild
           >
-            <Link href={`/${folder.id}`} className="flex items-center gap-2">
+            <Link href="/#" className="flex items-center gap-2">
               {getIcon(folder.id)}
               <span className="hidden truncate md:inline-flex">{folder.name}</span>
               {folder.count !== undefined && (
